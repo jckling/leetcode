@@ -1,0 +1,43 @@
+### [剑指 Offer II 101. 分割等和子集](https://leetcode.cn/problems/NUPfPr/)
+
+### 动态规划
+
+选择一些数字使其和为整个数组和的一半
+
+- 时间复杂度：O(c\*n)
+  - c 表示元素和的一半
+- 空间复杂度：O(c)
+
+```c++
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        // 特殊情况
+        if (nums.size() < 2) return false;
+
+        // 和
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum & 1) return false;  // 奇数不可分割
+
+        // 最大值
+        int imax = *max_element(nums.begin(), nums.end());
+        int target = sum / 2;
+        if (imax > target) return false;    // 最大值不能大于一半
+
+        // dp[i] 表示和值为 i
+        vector<bool> dp(target + 1, false);
+        dp[0] = true;
+
+        // 枚举区间范围
+        for (int i = 0; i < nums.size(); i++) {
+            int num = nums[i];
+            // 枚举和值。从大到小，避免覆盖上一行前面列的数据
+            for (int j = target; j >= num; j--) {
+                dp[j] = dp[j] | dp[j - num];
+            }
+        }
+
+        return dp[target];
+    }
+};
+```
