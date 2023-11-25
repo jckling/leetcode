@@ -258,3 +258,14 @@ InnoDB 与 MyISAM 的区别
 
 分布式事务
 - 两阶段提交
+
+## 其他
+
+服务
+- IaaS (Infrastructure as a Service)：基础设施即服务，服务商提供底层/物理层基础设施资源（服务器，数据中心，环境控制，电源，服务器机房）
+- PaaS (Platform as a Service)：平台即服务，提供基础设施底层服务、操作系统（Windows，Linux）、数据库服务器、Web服务器、域控制器和其他中间件，以及服务模型中的备份服务等中件层服务。
+- SaaS (Software as a Service)：软件即服务，提供基于软件的解决方案
+- BaaS (Backend as a Service)：后端即服务，单页应用
+- FaaS (Function as a service)：函数即服务，触发/周期调用
+- DaaS (Data as a service)
+- NaaS (Network as a service)
